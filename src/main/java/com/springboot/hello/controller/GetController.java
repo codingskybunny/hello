@@ -1,6 +1,7 @@
 package com.springboot.hello.controller;
 
 import com.springboot.hello.dto.MemberDto;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -35,11 +36,21 @@ public class GetController {
     }
 
     //@RequestParam을 활용한 GET 메소드 구현
+//    @GetMapping(value = "/request1")
+//    public String getRequestParam1(
+//            @RequestParam String name,
+//            @RequestParam String email,
+//            @RequestParam String organization
+//    ) {
+//        return name + " " + email + " " + organization;
+//    }
+
+    //Swagger 세부 내용 작성
     @GetMapping(value = "/request1")
     public String getRequestParam1(
-            @RequestParam String name,
-            @RequestParam String email,
-            @RequestParam String organization
+            @Parameter(description = "이름", required = true, example = "sky bunny") String name,
+            @Parameter(description = "이메일", required = true, example = "skybunny@gmail.com") String email,
+            @Parameter(description = "조직", required = true, example = "home") String organization
     ) {
         return name + " " + email + " " + organization;
     }
