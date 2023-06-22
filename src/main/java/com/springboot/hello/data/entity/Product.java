@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Table(name = "product")    //DB Table 이름 지정(생략 가능, 생략시 클래스 이름으로 생성)
 @Getter //Lombok Getter 메소드 자동 생성(편의성)
 @Setter //Lombok Setter 메소드 자동 생성(편의성)
-public class Product {
+public class Product extends BaseEntity {
 
     @Id //테이블 기본키 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +26,5 @@ public class Product {
     private Integer stock;
 
     //@Transient    //데이터베이스에서 필요 없을 경우 사용하는 어노테이션
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
 
 }
